@@ -38,14 +38,16 @@ module.exports = defineConfig([
         'error',
         {
           groups: [
+            // Side effect imports
+            ['^\\u0000'],
             // `react` first
             ['^react$'],
             // `react-native`, second
-            ['^react-native$', '^react-native(-.*)?$'],
+            ['^react-native', '^@react-navigation'],
             // `expo` third
-            ['^expo$', '^expo(-.*)?$'],
+            ['^expo'],
             // Packages starting with `tamagui`
-            ['^tamagui$', '^tamagui(-.*)?$'],
+            ['^@tamagui'],
             // Packages starting with a character
             ['^[a-z]'],
             // Packages starting with `@`
@@ -58,8 +60,6 @@ module.exports = defineConfig([
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
             // Style imports
             ['^.+\\.s?css$'],
-            // Side effect imports
-            ['^\\u0000'],
           ],
         },
       ],

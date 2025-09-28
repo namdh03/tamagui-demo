@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bitcode": ["Debug", "Release"]
+      "bitcode": true
     },
     "android": {
       "adaptiveIcon": {
