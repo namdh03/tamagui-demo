@@ -2,6 +2,8 @@ import { StyleSheet } from 'react-native';
 
 import { Link } from 'expo-router';
 
+import { Button } from '@tamagui/button';
+
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
@@ -12,6 +14,7 @@ export default function ModalScreen() {
       <Link href='/' dismissTo style={styles.link}>
         <ThemedText type='link'>Go to home screen</ThemedText>
       </Link>
+      <Button theme='blue'>Hello world</Button>
     </ThemedView>
   );
 }

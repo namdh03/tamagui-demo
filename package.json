@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "format": " expo lint --fix && prettier --write ."
+    "format": " expo lint --fix . && prettier --write ."
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -17,6 +17,10 @@
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
+    "@tamagui/babel-plugin": "^1.134.2",
+    "@tamagui/button": "^1.134.2",
+    "@tamagui/config": "^1.134.2",
+    "@tamagui/core": "^1.134.2",
     "expo": "~54.0.10",
     "expo-build-properties": "~1.0.9",
     "expo-constants": "~18.0.9",
