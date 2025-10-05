@@ -3,8 +3,10 @@ const { defineConfig } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 const eslintPluginSimpleImportSort = require('eslint-plugin-simple-import-sort');
+const pluginQuery = require('@tanstack/eslint-plugin-query');
 
 module.exports = defineConfig([
+  ...pluginQuery.configs['flat/recommended'],
   expoConfig,
   eslintPluginPrettierRecommended,
   {
@@ -46,8 +48,10 @@ module.exports = defineConfig([
             ['^react-native', '^@react-navigation'],
             // `expo` third
             ['^expo'],
-            // Packages starting with `tamagui`
+            // Packages starting with `@tamagui`
             ['^@tamagui'],
+            // Packages starting with `@tanstack`
+            ['^@tanstack'],
             // Packages starting with a character
             ['^[a-z]'],
             // Packages starting with `@`
