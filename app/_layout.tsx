@@ -13,12 +13,12 @@ import { focusManager, QueryClient, QueryClientProvider } from '@tanstack/react-
 import i18next from 'i18next';
 import { TamaguiProvider } from 'tamagui';
 
-import LOCAL_STORAGE from '@/constants/localStorage';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { useAppState } from '@/hooks/useAppState';
-import { useOnlineManager } from '@/hooks/useOnlineManager';
-import { config } from '@/tamagui.config';
-import localStorage from '@/utils/localStorage';
+import LOCAL_STORAGE from '~constants/localStorage';
+import { useColorScheme } from '~hooks/use-color-scheme.web';
+import { useAppState } from '~hooks/useAppState';
+import { useOnlineManager } from '~hooks/useOnlineManager';
+import { config } from '~tamagui.config';
+import localStorage from '~utils/localStorage';
 
 export const unstable_settings = {
   anchor: '(tabs)',

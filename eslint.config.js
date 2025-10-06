@@ -69,5 +69,12 @@ module.exports = defineConfig([
       ],
       'simple-import-sort/exports': 'error',
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
+    },
   },
 ]);

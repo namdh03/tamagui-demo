@@ -5,8 +5,8 @@ import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Button, Text } from 'tamagui';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { ThemedText } from '~components/themed-text';
+import { ThemedView } from '~components/themed-view';
 
 export default function ModalScreen() {
   const { t, i18n } = useTranslation();

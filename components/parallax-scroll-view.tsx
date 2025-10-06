@@ -3,9 +3,10 @@ import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffse
 
 import type { PropsWithChildren, ReactElement } from 'react';
 
-import { ThemedView } from '@/components/themed-view';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { useThemeColor } from '@/hooks/use-theme-color';
+import { useColorScheme } from '~hooks/use-color-scheme.web';
+import { useThemeColor } from '~hooks/use-theme-color';
+
+import { ThemedView } from './themed-view';
 
 const HEADER_HEIGHT = 250;
 

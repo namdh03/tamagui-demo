@@ -1,5 +1,5 @@
-import LOCAL_STORAGE from '@/constants/localStorage';
-import localStorage from '@/utils/localStorage';
+import LOCAL_STORAGE from '~constants/localStorage';
+import localStorage from '~utils/localStorage';
 
 import { ImmerStateCreator } from '..';
 
