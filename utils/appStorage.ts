@@ -1,6 +1,6 @@
 import { MMKV } from 'react-native-mmkv';
 
-class LocalStorage {
+class AppStorage {
   private readonly storage = new MMKV({ id: 'local-storage' });
 
   set(name: string, value: string | number | boolean) {
@@ -45,6 +45,6 @@ class LocalStorage {
   }
 }
 
-const localStorage = new LocalStorage();
+const appStorage = new AppStorage();
 
-export default localStorage;
+export default appStorage;

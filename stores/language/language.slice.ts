@@ -1,5 +1,5 @@
-import LOCAL_STORAGE from '~constants/localStorage';
-import localStorage from '~utils/localStorage';
+import APP_STORAGE from '~constants/appStorage';
+import appStorage from '~utils/appStorage';
 
 import { ImmerStateCreator } from '..';
 
@@ -17,7 +17,7 @@ export interface LanguageActions {
 export type LanguageSlice = LanguageState & LanguageActions;
 
 const initialState: LanguageState = {
-  lng: localStorage.getString(LOCAL_STORAGE.LANGUAGE) ?? 'en',
+  lng: appStorage.getString(APP_STORAGE.LANGUAGE) ?? 'en',
 };
 
 export const createLanguageSlice: ImmerStateCreator<LanguageSlice> = (set, _, store) => ({

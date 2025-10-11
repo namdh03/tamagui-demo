@@ -1,12 +1,5 @@
-import { StyleSheet } from 'react-native';
-
-import { Link } from 'expo-router';
-
 import { useTranslation } from 'react-i18next';
-import { Button, Text } from 'tamagui';
-
-import { ThemedText } from '~components/themed-text';
-import { ThemedView } from '~components/themed-view';
+import { Button, Text, View } from 'tamagui';
 
 export default function ModalScreen() {
   const { t, i18n } = useTranslation();
@@ -16,34 +9,24 @@ export default function ModalScreen() {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type='title'>This is a modal</ThemedText>
-      <Link href='/' dismissTo style={styles.link}>
-        <ThemedText type='link'>Go to home screen {i18n.resolvedLanguage}</ThemedText>
-      </Link>
+    <View flex={1} items={'center'} p={'$5'} gap={'$5'}>
+      <Text text={'center'}>{t('description.part2')}</Text>
 
-      <Text>{t('description.part2')}</Text>
-
-      <Button onPress={() => changeLanguage('en')} disabled={i18n.resolvedLanguage === 'en'}>
+      <Button
+        theme={i18n.resolvedLanguage === 'en' ? 'blue' : null}
+        disabled={i18n.resolvedLanguage === 'en'}
+        onPress={() => changeLanguage('en')}
+      >
         en
       </Button>
 
-      <Button onPress={() => changeLanguage('de')} disabled={i18n.resolvedLanguage === 'de'}>
+      <Button
+        theme={i18n.resolvedLanguage === 'de' ? 'blue' : null}
+        disabled={i18n.resolvedLanguage === 'de'}
+        onPress={() => changeLanguage('de')}
+      >
         de
       </Button>
-    </ThemedView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-});
