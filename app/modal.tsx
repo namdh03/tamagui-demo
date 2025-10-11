@@ -10,6 +10,8 @@ export default function ModalScreen() {
 
   return (
     <View flex={1} items={'center'} p={'$5'} gap={'$5'}>
+      <Text text={'center'}>{t('description.part1')}</Text>
+
       <Text text={'center'}>{t('description.part2')}</Text>
 
       <Button

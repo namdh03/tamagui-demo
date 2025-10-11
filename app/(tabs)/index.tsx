@@ -1,13 +1,11 @@
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 
 import { Button, View } from 'tamagui';
 
 export default function HomeScreen() {
   return (
     <View flex={1} items={'center'} justify={'center'}>
-      <Button>
-        <Link href='/modal'>Modal</Link>
-      </Button>
+      <Button onPress={() => router.navigate('/modal')}>Modal</Button>
     </View>
   );
 }

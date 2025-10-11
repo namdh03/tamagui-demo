@@ -1,8 +1,37 @@
 import { defaultConfig } from '@tamagui/config/v4';
 
-import { createTamagui } from 'tamagui';
+import { createFont, createTamagui, GenericFont } from 'tamagui';
 
-export const config = createTamagui(defaultConfig);
+const SFProDisplayFace: GenericFont['face'] = {
+  normal: { normal: 'SFProDisplay-Regular' },
+  bold: { normal: 'SFProDisplay-Bold' },
+  '400': { normal: 'SFProDisplay-Regular' },
+  '500': { normal: 'SFProDisplay-Medium' },
+  '600': { normal: 'SFProDisplay-Semibold' },
+  '700': { normal: 'SFProDisplay-Bold' },
+  '900': { normal: 'SFProDisplay-Black' },
+};
+
+const SFProDisplayFontsHeading = createFont({
+  ...defaultConfig.fonts.heading,
+  family: 'SFProDisplay-Regular',
+  face: SFProDisplayFace,
+});
+
+const SFProDisplayFontsBody = createFont({
+  ...defaultConfig.fonts.body,
+  family: 'SFProDisplay-Regular',
+  face: SFProDisplayFace,
+});
+
+export const config = createTamagui({
+  ...defaultConfig,
+  fonts: {
+    ...defaultConfig.fonts,
+    heading: SFProDisplayFontsHeading,
+    body: SFProDisplayFontsBody,
+  },
+});
 
 type CustomConfig = typeof config;
 
