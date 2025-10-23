@@ -31,6 +31,10 @@ export const config = createTamagui({
     heading: SFProDisplayFontsHeading,
     body: SFProDisplayFontsBody,
   },
+
+  themes: {
+    ...defaultConfig.themes,
+  },
 });
 
 type CustomConfig = typeof config;
