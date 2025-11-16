@@ -16,7 +16,7 @@ import APP_STORAGE from '~constants/appStorage';
 import { useAppState } from '~hooks/useAppState';
 import { useOnlineManager } from '~hooks/useOnlineManager';
 import { config } from '~tamagui.config';
-import appStorage from '~utils/appStorage';
+import { appStorage } from '~utils/publicStorage';
 
 export const unstable_settings = {
   anchor: '(tabs)',

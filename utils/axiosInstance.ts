@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'ax
 
 import APP_STORAGE from '~constants/appStorage';
 
-import appStorage from './appStorage';
+import { appStorage } from './publicStorage';
 
 // Add auth token to the request
 export const authInterceptor = (config: InternalAxiosRequestConfig) => {

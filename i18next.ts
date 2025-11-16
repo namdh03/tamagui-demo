@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next';
 import APP_STORAGE from './constants/appStorage';
 import deTranslation from './locales/de/translation.json';
 import enTranslation from './locales/en/translation.json';
-import appStorage from './utils/appStorage';
+import { appStorage } from './utils/publicStorage';
 
 // eslint-disable-next-line import/no-named-as-default-member
 i18n.use(initReactI18next).init({
