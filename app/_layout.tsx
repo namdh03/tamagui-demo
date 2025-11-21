@@ -12,11 +12,11 @@ import { focusManager, QueryClient, QueryClientProvider } from '@tanstack/react-
 import i18next from 'i18next';
 import { TamaguiProvider } from 'tamagui';
 
-import APP_STORAGE from '~constants/appStorage';
-import { useAppState } from '~hooks/useAppState';
-import { useOnlineManager } from '~hooks/useOnlineManager';
-import { config } from '~tamagui.config';
-import { appStorage } from '~utils/publicStorage';
+import APP_STORAGE from '~/constants/appStorage';
+import { useAppState } from '~/hooks/useAppState';
+import { useOnlineManager } from '~/hooks/useOnlineManager';
+import { config } from '~/tamagui.config';
+import { appStorage } from '~/utils/publicStorage';
 
 export const unstable_settings = {
   anchor: '(tabs)',

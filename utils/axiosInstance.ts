@@ -1,7 +1,7 @@
 // axiosInstance.js
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
-import APP_STORAGE from '~constants/appStorage';
+import APP_STORAGE from '~/constants/appStorage';
 
 import { appStorage } from './publicStorage';
 

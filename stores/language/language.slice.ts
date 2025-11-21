@@ -1,5 +1,5 @@
-import APP_STORAGE from '~constants/appStorage';
-import { appStorage } from '~utils/publicStorage';
+import APP_STORAGE from '~/constants/appStorage';
+import { appStorage } from '~/utils/publicStorage';
 
 import { ImmerStateCreator } from '..';
 
