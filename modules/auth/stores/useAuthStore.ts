@@ -10,12 +10,14 @@ type User = {
 
 type AuthState = {
   isAuthenticated: boolean;
-  user?: User;
+  isInitialized: boolean;
+  user?: User | null;
 };
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  user: undefined,
+  isInitialized: false,
+  user: null,
 };
 
 export const useAuthStore = create<AuthState>()(
@@ -25,11 +27,13 @@ export const useAuthStore = create<AuthState>()(
 );
 
 export const useIsAuthenticated = () => useAuthStore((state) => state.isAuthenticated);
+export const useIsInitialized = () => useAuthStore((state) => state.isInitialized);
 export const useUser = () => useAuthStore((state) => state.user);
 
-export const initialize = (isAuthenticated: boolean, user?: User) =>
+export const initialize = ({ isAuthenticated, user }: Pick<AuthState, 'isAuthenticated' | 'user'>) =>
   useAuthStore.setState({
     isAuthenticated,
+    isInitialized: true,
     user,
   });
 

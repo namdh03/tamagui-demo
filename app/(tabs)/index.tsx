@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 
 import { Button, Text, View } from 'tamagui';
 
-import { authenticate, resetAuthStore, useIsAuthenticated } from '~/modules/auth/stores/useAuthStore';
+import { authenticate, deauthenticate, resetAuthStore, useIsAuthenticated } from '~/modules/auth/stores/useAuthStore';
 import { resetAllStores } from '~/stores';
 import { useCountActions, useCountValue } from '~/stores/count/count.selectors';
 import { useLanguageActions, useLanguageLng } from '~/stores/language/language.selectors';
@@ -28,6 +28,7 @@ export default function HomeScreen() {
       <Button onPress={() => resetAuthStore()}>Reset Auth Store</Button>
       <Button onPress={() => resetAllStores()}>Reset All</Button>
       <Button onPress={() => router.navigate('/modal')}>Modal</Button>
+      <Button onPress={deauthenticate}>Deauthenticate</Button>
     </View>
   );
 }

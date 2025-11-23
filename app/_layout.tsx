@@ -13,9 +13,11 @@ import { focusManager, QueryClient, QueryClientProvider } from '@tanstack/react-
 import i18next from 'i18next';
 import { TamaguiProvider } from 'tamagui';
 
+import { SplashScreenController } from '~/components/splash';
 import APP_STORAGE from '~/constants/appStorage';
 import { useAppState } from '~/hooks/useAppState';
 import { useOnlineManager } from '~/hooks/useOnlineManager';
+import { initialize, useIsAuthenticated } from '~/modules/auth/stores/useAuthStore';
 import { config } from '~/tamagui.config';
 import { appStorage } from '~/utils/publicStorage';
 
@@ -34,10 +36,22 @@ function onAppStateChange(status: AppStateStatus) {
 }
 
 function RootNavigator() {
+  const isAuthenticated = useIsAuthenticated();
+
+  useEffect(() => {
+    initialize({ isAuthenticated: false, user: null });
+  }, []);
+
   return (
     <Stack>
-      <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-      <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+      <Stack.Protected guard={isAuthenticated}>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+      </Stack.Protected>
+
+      <Stack.Protected guard={!isAuthenticated}>
+        <Stack.Screen name='auth/login' options={{ headerShown: false }} />
+      </Stack.Protected>
     </Stack>
   );
 }
@@ -58,6 +72,7 @@ export default function RootLayout() {
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView>
         <TamaguiProvider config={config}>
+          <SplashScreenController />
           <RootNavigator />
           <StatusBar style='auto' />
         </TamaguiProvider>
