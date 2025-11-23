@@ -3,6 +3,7 @@ import 'react-native-reanimated';
 import { useEffect } from 'react';
 
 import { AppStateStatus, Platform } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -55,10 +56,12 @@ export default function RootLayout() {
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
-      <TamaguiProvider config={config}>
-        <RootNavigator />
-        <StatusBar style='auto' />
-      </TamaguiProvider>
+      <GestureHandlerRootView>
+        <TamaguiProvider config={config}>
+          <RootNavigator />
+          <StatusBar style='auto' />
+        </TamaguiProvider>
+      </GestureHandlerRootView>
     </QueryClientProvider>
   );
 }

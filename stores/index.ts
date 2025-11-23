@@ -1,14 +1,5 @@
 import type { StateCreator } from 'zustand';
 import { create as actualCreate } from 'zustand';
-import { immer } from 'zustand/middleware/immer';
-
-import { createLanguageSlice, LanguageSlice } from './language/language.slice';
-
-export type Store = {
-  language: LanguageSlice;
-};
-
-export type ImmerStateCreator<T> = StateCreator<Store, [['zustand/immer', never]], [], T>;
 
 const storeResetFns = new Set<() => void>();
 
@@ -27,9 +18,3 @@ export const create = (<T>() => {
     return store;
   };
 }) as typeof actualCreate;
-
-export const useStore = create<Store>()(
-  immer((...a) => ({
-    language: createLanguageSlice(...a),
-  })),
-);

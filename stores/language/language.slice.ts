@@ -1,7 +1,7 @@
 import APP_STORAGE from '~/constants/appStorage';
 import { appStorage } from '~/utils/publicStorage';
 
-import { ImmerStateCreator } from '..';
+import { ImmerStateCreator } from '../useGlobalStore';
 
 export interface LanguageState {
   lng?: string;
@@ -28,6 +28,9 @@ export const createLanguageSlice: ImmerStateCreator<LanguageSlice> = (set, _, st
         state.language.lng = lng;
       });
     },
-    reset: () => set(() => store.getInitialState(), true),
+    reset: () =>
+      set((state) => {
+        state.language = store.getInitialState().language;
+      }),
   },
 });
