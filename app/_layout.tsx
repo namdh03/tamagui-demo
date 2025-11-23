@@ -50,7 +50,7 @@ function RootNavigator() {
       </Stack.Protected>
 
       <Stack.Protected guard={!isAuthenticated}>
-        <Stack.Screen name='auth/login' options={{ headerShown: false }} />
+        <Stack.Screen name='auth' options={{ headerShown: false }} />
       </Stack.Protected>
     </Stack>
   );
