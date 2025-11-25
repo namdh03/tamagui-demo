@@ -4,7 +4,7 @@ import { authenticate } from '~/modules/auth/stores/useAuthStore';
 
 export default function LoginScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View flex={1} justify='center' items='center'>
       <Button
         onPress={() => {
           authenticate({
