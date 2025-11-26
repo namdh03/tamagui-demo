@@ -22,7 +22,7 @@ import { config } from '~/tamagui.config';
 import { appStorage } from '~/utils/publicStorage';
 
 export const unstable_settings = {
-  anchor: '(tabs)',
+  anchor: '(drawer)',
 };
 
 // Create a client
@@ -44,13 +44,29 @@ function RootNavigator() {
 
   return (
     <Stack>
-      <Stack.Protected guard={isAuthenticated}>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+      <Stack.Protected guard={!isAuthenticated}>
+        <Stack.Screen
+          name='auth'
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Protected>
 
-      <Stack.Protected guard={!isAuthenticated}>
-        <Stack.Screen name='auth' options={{ headerShown: false }} />
+      <Stack.Protected guard={isAuthenticated}>
+        <Stack.Screen
+          name='(drawer)'
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name='modal'
+          options={{
+            presentation: 'modal',
+            title: 'Modal',
+          }}
+        />
       </Stack.Protected>
     </Stack>
   );
